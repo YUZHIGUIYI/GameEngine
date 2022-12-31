@@ -1,0 +1,16 @@
+[submodule "Hazel/external/glfw"]
+	path = Hazel/external/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "Hazel/external/stb"]
+	path = Hazel/external/stb
+	url = https://github.com/nothings/stb.git
+[submodule "Hazel/external/glm"]
+	path = Hazel/external/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "Hazel/external/spdlog"]
+	path = Hazel/external/spdlog
+	url = https://github.com/gabime/spdlog.git
+[submodule "Hazel/external/imgui"]
+	path = Hazel/external/imgui
+	url = https://github.com/YUZHIGUIYI/imgui.git
+	branch = docking
