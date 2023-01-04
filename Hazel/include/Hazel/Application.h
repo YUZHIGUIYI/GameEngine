@@ -15,6 +15,7 @@
 #include <Hazel/Renderer/Shader.h>
 #include <Hazel/Renderer/Buffer.h>
 #include <Hazel/Renderer/VertexArray.h>
+#include <Hazel/Renderer/OrthographicCamera.h>
 
 namespace Hazel
 {
@@ -49,6 +50,8 @@ namespace Hazel
 
         std::shared_ptr<Shader> m_BlueShader;
         std::shared_ptr<VertexArray> m_SquareVA;
+
+        OrthographicCamera m_Camera;
 
     private:
         static Application* s_Instance;

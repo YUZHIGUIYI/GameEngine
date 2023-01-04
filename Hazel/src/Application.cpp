@@ -6,7 +6,7 @@
 #include <Hazel/Application.h>
 #include <Hazel/Input.h>
 
-#include <glad/glad.h>
+#include <Hazel/Renderer/Renderer.h>
 
 namespace Hazel
 {
@@ -16,6 +16,7 @@ namespace Hazel
     Application* Application::s_Instance = nullptr;
 
     Application::Application()
+        : m_Camera(-1.6f, 1.6f, -0.9f, 0.9f)
     {
         HZ_CORE_ASSERT(!s_Instance, "Application already exists!");
         s_Instance = this;
@@ -76,6 +77,8 @@ namespace Hazel
 			layout(location = 0) in vec3 a_Position;
             layout(location = 1) in vec4 a_Color;
 
+            uniform mat4 u_ViewProjection;
+
 			out vec3 v_Position;
             out vec4 v_Color;
 
@@ -83,7 +86,7 @@ namespace Hazel
 			{
 				v_Position = a_Position;
                 v_Color = a_Color;
-				gl_Position = vec4(a_Position, 1.0);
+				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
 			}
 		)";
 
@@ -109,12 +112,14 @@ namespace Hazel
 
 			layout(location = 0) in vec3 a_Position;
 
+            uniform mat4 u_ViewProjection;
+
 			out vec3 v_Position;
 
 			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = vec4(a_Position, 1.0);
+				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
 			}
 		)";
 
@@ -161,16 +166,18 @@ namespace Hazel
     {
         while (m_Running)
         {
-            glClearColor(0.1f, 0.1f, 0.1f, 1.0);
-            glClear(GL_COLOR_BUFFER_BIT);
+            RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
+            RenderCommand::Clear();
 
-            m_BlueShader->Bind();
-            m_SquareVA->Bind();
-            glDrawElements(GL_TRIANGLES, m_SquareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+            m_Camera.SetPosition({ 0.5f, 0.5f, 0.0f });
+            m_Camera.SetRotation(45.0f);
 
-            m_Shader->Bind();
-            m_VertexArray->Bind();
-            glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+            Renderer::BeginScene(m_Camera);
+
+            Renderer::Submit(m_BlueShader, m_SquareVA);
+            Renderer::Submit(m_Shader, m_VertexArray);
+
+            Renderer::EndScene();
 
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();
