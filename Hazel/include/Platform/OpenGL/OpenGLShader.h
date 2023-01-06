@@ -7,7 +7,7 @@
 #include <Hazel/Renderer/Shader.h>
 #include <glm/glm.hpp>
 
-// 
+// ToDO: Remove
 typedef unsigned int GLenum;
 
 namespace Hazel
