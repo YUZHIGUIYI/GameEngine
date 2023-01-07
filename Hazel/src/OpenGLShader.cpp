@@ -161,7 +161,12 @@ namespace Hazel
         }
 
         for (auto id : glShaderIDs)
+        {
             glDetachShader(program, id);
+            // Delete the shaders after the shader program creation to prevent them from being leaked
+            glDeleteShader(id);
+        }
+
     }
 
     void OpenGLShader::Bind() const

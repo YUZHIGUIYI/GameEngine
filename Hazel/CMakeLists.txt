@@ -25,6 +25,6 @@ target_link_libraries(Hazel PUBLIC glfw)
 target_link_libraries(Hazel PUBLIC ImGuiDocking)
 target_link_libraries(Hazel PUBLIC spdlog_header_only)
 
-target_compile_definitions(Hazel PUBLIC HZ_PLATFORM_WINDOWS)
+# target_compile_definitions(Hazel PUBLIC HZ_PLATFORM_WINDOWS)
 # Debug only
-target_compile_definitions(Hazel PUBLIC HZ_DEBUG)
+# target_compile_definitions(Hazel PUBLIC HZ_DEBUG)

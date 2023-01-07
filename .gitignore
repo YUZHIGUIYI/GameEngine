@@ -5,3 +5,8 @@ lib/
 .idea/
 cmake-build-debug/
 cmake-build-release/
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
