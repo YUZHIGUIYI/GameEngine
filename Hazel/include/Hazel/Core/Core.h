@@ -47,6 +47,7 @@
     #error "Unknown platform!"
 #endif // End of platform detection
 
+// DLL support
 #ifdef HZ_PLATFORM_WINDOWS
 #if HZ_DYNAMIC_LINK
     #ifdef HZ_BUILD_DLL
@@ -59,7 +60,7 @@
 #endif
 #else
     #error Hazel only supports Windows!
-#endif
+#endif  // End of DLL support
 
 #ifdef _DEBUG
     #define HZ_DEBUG
