@@ -3,7 +3,7 @@
 //
 
 #include <Platform/Windows/WindowsInput.h>
-#include <Hazel/Application.h>
+#include <Hazel/Core/Application.h>
 #include <GLFW/glfw3.h>
 
 namespace Hazel

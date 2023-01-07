@@ -2,7 +2,7 @@
 // Created by ZZK on 2022/12/31.
 //
 
-#include <Hazel/Log.h>
+#include <Hazel/Core/Log.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 
 namespace Hazel

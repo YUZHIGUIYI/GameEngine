@@ -2,7 +2,7 @@
 // Created by ZZK on 2023/1/6.
 //
 
-#include "hzpch.h"
+#include <hzpch.h>
 #include <Platform/OpenGL/OpenGLTexture.h>
 #include <glad/glad.h>
 #define STB_IMAGE_IMPLEMENTATION

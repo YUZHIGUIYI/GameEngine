@@ -2,7 +2,7 @@
 // Created by ZZK on 2023/1/3.
 //
 
-#include "hzpch.h"
+#include <hzpch.h>
 #include <Hazel/Renderer/Shader.h>
 
 #include <Hazel/Renderer/Renderer.h>

@@ -2,9 +2,9 @@
 // Created by ZZK on 2022/12/31.
 //
 
-#include "hzpch.h"
+#include <hzpch.h>
 #include <Hazel/ImGui/ImGuiLayer.h>
-#include <Hazel/Application.h>
+#include <Hazel/Core/Application.h>
 
 #include <imgui.h>
 #include <backends/imgui_impl_glfw.h>

@@ -2,9 +2,9 @@
 // Created by ZZK on 2022/12/31.
 //
 
-#include "hzpch.h"
-#include <Hazel/Application.h>
-#include <Hazel/Input.h>
+#include <hzpch.h>
+#include <Hazel/Core/Application.h>
+#include <Hazel/Core/Input.h>
 #include <Hazel/Renderer/Renderer.h>
 #include <GLFW/glfw3.h>
 

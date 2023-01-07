@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "hzpch.h"
+#include <hzpch.h>
 
 namespace Hazel
 {

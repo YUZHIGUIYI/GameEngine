@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include <Hazel/Core.h>
-#include <Hazel/Layer.h>
+#include <Hazel/Core/Core.h>
+#include <Hazel/Core/Layer.h>
 
 namespace Hazel {
 

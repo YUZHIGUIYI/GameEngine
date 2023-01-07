@@ -2,9 +2,9 @@
 // Created by ZZK on 2023/1/6.
 //
 
-#include <Hazel/OrthographicCameraController.h>
-#include <Hazel/Input.h>
-#include <Hazel/KeyCodes.h>
+#include <Hazel/Renderer/OrthographicCameraController.h>
+#include <Hazel/Core/Input.h>
+#include <Hazel/Core/KeyCodes.h>
 
 namespace Hazel
 {

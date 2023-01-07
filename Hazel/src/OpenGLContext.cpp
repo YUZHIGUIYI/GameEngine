@@ -2,7 +2,7 @@
 // Created by ZZK on 2022/12/31.
 //
 
-#include "hzpch.h"
+#include <hzpch.h>
 #include <Platform/OpenGL/OpenGLContext.h>
 
 #include <glad/glad.h>

@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include <Hazel/Core.h>
-#include <Hazel/Window.h>
-#include <Hazel/LayerStack.h>
+#include <Hazel/Core/Core.h>
+#include <Hazel/Core/Window.h>
+#include <Hazel/Core/LayerStack.h>
 #include <Hazel/Events/Event.h>
 #include <Hazel/Events/ApplicationEvent.h>
 

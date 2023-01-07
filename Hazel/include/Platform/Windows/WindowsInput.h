@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <Hazel/Input.h>
+#include <Hazel/Core/Input.h>
 
 namespace Hazel
 {
