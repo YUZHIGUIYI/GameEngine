@@ -1,7 +1,9 @@
 # Sandbox
-file(GLOB_RECURSE SandboxFiles CONFIGURE_DEPENDS src/*.cpp src/*.h)
+file(GLOB_RECURSE SandboxFiles CONFIGURE_DEPENDS src/*.cpp include/*.h)
 
 add_executable(Sandbox ${SandboxFiles})
+
+target_include_directories(Sandbox PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 
 target_link_libraries(Sandbox PRIVATE Hazel)
 
