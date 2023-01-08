@@ -1,4 +1,4 @@
-// Basic Texture shader
+// Basic Texture Shader
 
 #type vertex
 #version 330 core
@@ -28,5 +28,5 @@ uniform sampler2D u_Texture;
 
 void main()
 {
-    color = texture(u_Texture, v_TexCoord);
+    color = texture(u_Texture, v_TexCoord * 10.0);
 }
