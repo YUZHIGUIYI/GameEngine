@@ -11,7 +11,6 @@
 #include <backends/imgui_impl_opengl3.h>
 
 #include <GLFW/glfw3.h>
-//#include <glad/glad.h>
 
 namespace Hazel
 {
@@ -52,6 +51,10 @@ namespace Hazel
         // Setup Platform/Renderer bindings
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init("#version 460");
+
+        // Load Fonts
+        ImFont* font = io.Fonts->AddFontFromFileTTF("fonts/Roboto-Medium.ttf", 20.0f);
+        HZ_CORE_ASSERT(font, "ImGui fails to load font!");
     }
 
     void ImGuiLayer::OnDetach()
@@ -85,12 +88,6 @@ namespace Hazel
             ImGui::RenderPlatformWindowsDefault();
             glfwMakeContextCurrent(backup_current_context);
         }
-    }
-
-    void ImGuiLayer::OnImGuiRender()
-    {
-        static bool show = true;
-        ImGui::ShowDemoWindow(&show);
     }
 
 }
