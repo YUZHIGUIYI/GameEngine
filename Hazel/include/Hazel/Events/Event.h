@@ -39,7 +39,7 @@ namespace Hazel
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-    class HAZEL_API Event
+    class Event
     {
     public:
             bool Handled = false;

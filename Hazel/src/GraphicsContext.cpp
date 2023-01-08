@@ -1,17 +1,17 @@
 //
-// Created by ZZK on 2023/1/4.
+// Created by ZZK on 2023/1/8.
 //
 
-#include <Hazel/Renderer/RendererAPI.h>
-#include <Platform/OpenGL/OpenGLRendererAPI.h>
+#include <hzpch.h>
+#include <Hazel/Renderer/GraphicsContext.h>
+#include <Hazel/Renderer/Renderer.h>
+#include <Platform/OpenGL/OpenGLContext.h>
 
 namespace Hazel
 {
-    RendererAPI::API RendererAPI::s_API = RendererAPI::API::OpenGL;
-
-    Scope<RendererAPI> RendererAPI::Create()
+    Scope<GraphicsContext> GraphicsContext::Create(void* window)
     {
-        switch (s_API)
+        switch (Renderer::GetAPI())
         {
             case RendererAPI::API::None:
             {
@@ -20,7 +20,7 @@ namespace Hazel
             }
             case RendererAPI::API::OpenGL:
             {
-                return CreateScope<OpenGLRendererAPI>();
+                return CreateScope<OpenGLContext>(static_cast<GLFWwindow*>(window));
             }
         }
 

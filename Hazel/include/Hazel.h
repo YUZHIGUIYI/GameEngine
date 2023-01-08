@@ -5,6 +5,8 @@
 #pragma once
 
 // For used by Hazel applications
+#include <Hazel/Core/Core.h>
+
 #include <Hazel/Core/Application.h>
 #include <Hazel/Core/Layer.h>
 #include <Hazel/Core/Log.h>
