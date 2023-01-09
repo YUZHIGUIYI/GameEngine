@@ -11,6 +11,8 @@ namespace Hazel
 
     void Renderer::Init()
     {
+        HZ_PROFILE_FUNCTION();
+
         RenderCommand::Init();
         // Support 2D Render
         Renderer2D::Init();
