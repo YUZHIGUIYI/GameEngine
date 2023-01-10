@@ -8,7 +8,7 @@
 
 namespace Hazel
 {
-    typedef enum class KeyCode : uint16_t
+    enum class KeyCode : uint16_t
     {
         // From glfw3.h
         Space               = 32,
@@ -141,7 +141,9 @@ namespace Hazel
         RightAlt            = 346,
         RightSuper          = 347,
         Menu                = 348
-    } Key;
+    };
+
+    using Key = KeyCode;
 
     inline std::ostream& operator<<(std::ostream& os, KeyCode keyCode)
     {

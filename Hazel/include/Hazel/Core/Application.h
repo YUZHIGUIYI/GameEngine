@@ -14,6 +14,9 @@
 
 #include <Hazel/Core/Timestep.h>
 
+// Make run-loop only accessible on the engine side
+int main(int argc, char** argv);
+
 namespace Hazel
 {
 
@@ -22,8 +25,6 @@ namespace Hazel
     public:
         Application();
         virtual ~Application();
-
-        void Run();
 
         void OnEvent(Event& e);
 
@@ -35,6 +36,7 @@ namespace Hazel
         inline static Application& Get() { return *s_Instance; }
 
     private:
+        void Run();
         bool OnWindowClose(WindowCloseEvent& e);
         bool OnWindowResize(WindowResizeEvent& e);
 
@@ -48,6 +50,7 @@ namespace Hazel
 
     private:
         static Application* s_Instance;
+        friend int::main(int argc, char** argv);    // Make run-loop only accessible on the engine side
     };
 
     // To be defined in CLIENT
