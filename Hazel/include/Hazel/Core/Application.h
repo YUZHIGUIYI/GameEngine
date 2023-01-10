@@ -50,7 +50,7 @@ namespace Hazel
 
     private:
         static Application* s_Instance;
-        friend int::main(int argc, char** argv);    // Make run-loop only accessible on the engine side
+        friend int ::main(int argc, char** argv);    // Make run-loop only accessible on the engine side
     };
 
     // To be defined in CLIENT
