@@ -131,7 +131,7 @@ namespace Hazel
     {
         HZ_PROFILE_FUNCTION();
 
-        uint32_t dataSize = (uint8_t*)s_Data.QuadVertexBufferPtr - (uint8_t*)s_Data.QuadVertexBufferBase;
+        auto dataSize = static_cast<uint32_t>((uint8_t*)s_Data.QuadVertexBufferPtr - (uint8_t*)s_Data.QuadVertexBufferBase);
         s_Data.QuadVertexBuffer->SetData(s_Data.QuadVertexBufferBase, dataSize);
 
         Flush();
@@ -229,6 +229,10 @@ namespace Hazel
 
         if (textureIndex == 0.0f)
         {
+            // To render more than Renderer2DData::MaxTextureSlots different textures
+            if (s_Data.TextureSlotIndex >= Renderer2DData::MaxTextureSlots)
+                FlushAndReset();
+
             textureIndex = static_cast<float>(s_Data.TextureSlotIndex);
             s_Data.TextureSlots[s_Data.TextureSlotIndex] = texture;
             ++s_Data.TextureSlotIndex;
@@ -322,6 +326,10 @@ namespace Hazel
 
         if (textureIndex == 0.0f)
         {
+            // To render more than Renderer2DData::MaxTextureSlots different textures
+            if (s_Data.TextureSlotIndex >= Renderer2DData::MaxTextureSlots)
+                FlushAndReset();
+
             textureIndex = static_cast<float>(s_Data.TextureSlotIndex);
             s_Data.TextureSlots[s_Data.TextureSlotIndex] = texture;
             ++s_Data.TextureSlotIndex;
