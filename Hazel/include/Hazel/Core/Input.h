@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <Hazel/Core/Core.h>
+#include <Hazel/Core/Base.h>
 #include <Hazel/Core/KeyCodes.h>
 #include <Hazel/Core/MouseCodes.h>
 
