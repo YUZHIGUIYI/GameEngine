@@ -5,6 +5,7 @@
 #pragma once
 
 #include <Hazel.h>
+#include <Sandbox/ParticleSystem.h>
 
 class Sandbox2D : public Hazel::Layer
 {
@@ -29,6 +30,10 @@ private:
     Hazel::Ref<Hazel::Texture2D> m_CheckerboardTexture;
 
     glm::vec4 m_SquareColor;
+
+    // Particle system
+    ParticleProps m_Particle;
+    ParticleSystem m_ParticleSystem;
 };
 
 
