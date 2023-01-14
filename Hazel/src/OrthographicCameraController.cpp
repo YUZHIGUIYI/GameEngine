@@ -78,6 +78,12 @@ namespace Hazel
         m_Camera.SetProjection(m_Bounds.Left, m_Bounds.Right, m_Bounds.Bottom, m_Bounds.Top);
     }
 
+    void OrthographicCameraController::OnResize(float width, float height)
+    {
+        m_AspectRatio = width / height;
+        CalculateView();
+    }
+
     bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent &e)
     {
         HZ_PROFILE_FUNCTION();
@@ -92,8 +98,8 @@ namespace Hazel
     {
         HZ_PROFILE_FUNCTION();
 
-        m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
-        CalculateView();
+        OnResize((float)e.GetWidth(), (float)e.GetHeight());
+
         return false;
     }
 }
