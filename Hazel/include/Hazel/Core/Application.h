@@ -35,6 +35,8 @@ namespace Hazel
 
         void Close();
 
+        ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
+
         inline static Application& Get() { return *s_Instance; }
 
     private:

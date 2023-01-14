@@ -70,9 +70,13 @@ namespace Hazel
 
     void ImGuiLayer::OnEvent(Event& event)
     {
-        ImGuiIO& io = ImGui::GetIO();
-        event.Handled |= event.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
-        event.Handled |= event.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
+        // Unless the viewport are focused and hovered, otherwise m_BlockEvents = true and block event occurs, MouseScroll doesn't work
+        if (m_BlockEvents)
+        {
+            ImGuiIO& io = ImGui::GetIO();
+            event.Handled |= event.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
+            event.Handled |= event.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
+        }
     }
 
     void ImGuiLayer::Begin()
