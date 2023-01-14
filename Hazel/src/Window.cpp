@@ -2,6 +2,7 @@
 // Created by ZZK on 2023/1/10.
 //
 
+#include <hzpch.h>
 #include <Hazel/Core/Window.h>
 
 #ifdef HZ_PLATFORM_WINDOWS

@@ -26,5 +26,8 @@ find_package(OpenGL REQUIRED)
 # Hazel
 add_subdirectory(Hazel)
 
+# Hazel editor
+add_subdirectory(Hazel-Editor)
+
 # Sandbox Application
 add_subdirectory(Sandbox)
