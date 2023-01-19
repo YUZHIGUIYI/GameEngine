@@ -20,6 +20,13 @@ if(NOT CMAKE_EXPORT_COMPILE_COMMANDS)
     set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 endif()
 
+# Test
+include(CMakeDependentOption)
+cmake_dependent_option(HAZEL_BUILD_WIN32 "Build support for Win32" ON "WIN32" OFF)
+if(HAZEL_BUILD_WIN32)
+    message(STATUS "Build for Windows platform")
+endif()
+
 # OpenGL
 find_package(OpenGL REQUIRED)
 
