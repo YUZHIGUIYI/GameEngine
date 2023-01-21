@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <hzpch.h>
+#include <sstream>
 #include <Hazel/Core/Base.h>
 #include <Hazel/Events/Event.h>
 

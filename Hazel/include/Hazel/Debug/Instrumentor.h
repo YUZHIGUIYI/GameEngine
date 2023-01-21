@@ -10,6 +10,9 @@
 #include <fstream>
 #include <thread>
 #include <iomanip>
+#include <sstream>
+
+#include <Hazel/Core/Log.h>
 
 namespace Hazel
 {
