@@ -33,28 +33,31 @@ namespace Hazel
         m_SquareEntity = m_ActiveScene->CreateEntity("Green Square");
         m_SquareEntity.AddComponent<SpriteRendererComponent>(glm::vec4{0.0f, 1.0f, 0.0f, 1.0f});
 
+        auto redSquare = m_ActiveScene->CreateEntity("Red Square");
+        redSquare.AddComponent<SpriteRendererComponent>(glm::vec4{1.0f, 0.0f, 0.0f, 1.0f});
+
         m_CameraEntity = m_ActiveScene->CreateEntity("Camera Entity");
         m_CameraEntity.AddComponent<CameraComponent>();
 
-        m_SecondCamera = m_ActiveScene->CreateEntity("Clip-Space Entity");
+        m_SecondCamera = m_ActiveScene->CreateEntity("Clip-Space Camera Entity");
         auto& cc = m_SecondCamera.AddComponent<CameraComponent>();
         cc.Primary = false;
 
         class CameraController : public ScriptableEntity
         {
         public:
-            void OnCreate()
+            virtual void OnCreate() override
             {
                 auto& transform = GetComponent<TransformComponent>().Transform;
                 transform[3][0] = std::rand() % 10 - 5.0f;
             }
 
-            void OnDestroy()
+            virtual void OnDestroy() override
             {
 
             }
 
-            void OnUpdate(TimeStep ts)
+            virtual void OnUpdate(TimeStep ts) override
             {
                 auto& transform = GetComponent<TransformComponent>().Transform;
                 float speed = 5.0f;
