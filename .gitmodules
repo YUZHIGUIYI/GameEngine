@@ -17,3 +17,6 @@
 [submodule "Hazel/external/entt"]
 	path = Hazel/external/entt
 	url = https://github.com/skypjack/entt.git
+[submodule "Hazel/external/yaml-cpp"]
+	path = Hazel/external/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp.git

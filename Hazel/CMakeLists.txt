@@ -13,6 +13,9 @@ add_subdirectory(external/spdlog)
 # entt
 add_subdirectory(external/entt)
 
+# yaml-cpp
+add_subdirectory(external/yaml-cpp)
+
 # Hazel
 file(GLOB_RECURSE HazelFiles CONFIGURE_DEPENDS src/*.cpp include/*.h)
 
@@ -28,6 +31,7 @@ target_link_libraries(Hazel PUBLIC glfw)
 target_link_libraries(Hazel PUBLIC ImGuiDocking)
 target_link_libraries(Hazel PUBLIC spdlog_header_only)
 target_link_libraries(Hazel PUBLIC EnTT)
+target_link_libraries(Hazel PUBLIC yaml-cpp)
 
 target_compile_definitions(Hazel PUBLIC _CRT_SECURE_NO_WARNINGS)
 target_compile_definitions(Hazel PUBLIC GLFW_INCLUDE_NONE)
