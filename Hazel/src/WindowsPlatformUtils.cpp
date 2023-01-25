@@ -15,7 +15,7 @@
 namespace Hazel
 {
 
-    std::string FileDialogs::OpenFile(const char *filter)
+    std::optional<std::string> FileDialogs::OpenFile(const char *filter)
     {
         OPENFILENAMEA ofn;
         CHAR szFile[260] = { 0 };
@@ -27,13 +27,13 @@ namespace Hazel
         ofn.lpstrFilter = filter;
         ofn.nFilterIndex = 1;
         ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
+
         if (GetOpenFileNameA(&ofn) == TRUE)
             return ofn.lpstrFile;
-
-        return std::string();
+        return std::nullopt;
     }
 
-    std::string FileDialogs::SaveFile(const char *filter)
+    std::optional<std::string> FileDialogs::SaveFile(const char *filter)
     {
         OPENFILENAMEA ofn;
         CHAR szFile[260] = { 0 };
@@ -44,17 +44,17 @@ namespace Hazel
         ofn.nMaxFile = sizeof(szFile);
         ofn.lpstrFilter = filter;
         ofn.nFilterIndex = 1;
+        ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
 
         // Set the default extension by extracting it from the filter
         ofn.lpstrDefExt = std::strchr(filter, '\0') + 1;    // TODO
 
-        ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
         if (GetSaveFileNameA(&ofn) == TRUE)
         {
             return ofn.lpstrFile;
         }
 
-        return std::string();
+        return std::nullopt;
     }
 }
 
