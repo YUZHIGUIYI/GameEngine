@@ -9,10 +9,43 @@
 namespace Hazel
 {
 
+    enum class FramebufferTextureFormat
+    {
+        None = 0,
+
+        // Color
+        RGBA8,
+
+        // Depth/Stencil
+        DEPTH24STENCIL8,
+
+        // Default
+        Depth = DEPTH24STENCIL8
+    };
+
+    struct FramebufferTextureSpecification
+    {
+        FramebufferTextureSpecification() = default;
+        FramebufferTextureSpecification(FramebufferTextureFormat format)
+            : TextureFormat(format) {}
+
+        FramebufferTextureFormat TextureFormat = FramebufferTextureFormat::None;
+        // TODO: filtering/wrap
+    };
+
+    struct FramebufferAttachmentSpecification
+    {
+        FramebufferAttachmentSpecification() = default;
+        FramebufferAttachmentSpecification(std::initializer_list<FramebufferTextureSpecification> attachments)
+            : Attachments(attachments) {}
+
+        std::vector<FramebufferTextureSpecification> Attachments;
+    };
+
     struct FramebufferSpecification
     {
         uint32_t Width = 0, Height = 0;
-        // FramebufferFormat Format =
+        FramebufferAttachmentSpecification Attachments;
         uint32_t Samples = 1;
 
         bool SwapChainTarget = false;
@@ -28,7 +61,7 @@ namespace Hazel
 
         virtual void Resize(uint32_t width, uint32_t height) = 0;
 
-        virtual uint32_t GetColorAttachmentRendererID() const = 0;
+        virtual uint32_t GetColorAttachmentRendererID(uint32_t index = 0) const = 0;    // For MRTs
 
         virtual const FramebufferSpecification& GetSpecification() const = 0;
 
