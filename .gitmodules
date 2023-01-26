@@ -20,3 +20,6 @@
 [submodule "Hazel/external/yaml-cpp"]
 	path = Hazel/external/yaml-cpp
 	url = https://github.com/jbeder/yaml-cpp.git
+[submodule "Hazel/external/ImGuizmo"]
+	path = Hazel/external/ImGuizmo
+	url = https://github.com/YUZHIGUIYI/ImGuizmo.git

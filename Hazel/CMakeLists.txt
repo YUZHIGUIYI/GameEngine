@@ -7,6 +7,9 @@ add_subdirectory(external/glfw)
 # imgui
 add_subdirectory(external/imgui)
 
+# imguizmo
+add_subdirectory(external/ImGuizmo)
+
 # spdlog
 add_subdirectory(external/spdlog)
 
@@ -29,12 +32,10 @@ target_link_libraries(Hazel PUBLIC OpenGL::GL)
 target_link_libraries(Hazel PUBLIC Glad)
 target_link_libraries(Hazel PUBLIC glfw)
 target_link_libraries(Hazel PUBLIC ImGuiDocking)
+target_link_libraries(Hazel PUBLIC ImGuizmo)
 target_link_libraries(Hazel PUBLIC spdlog_header_only)
 target_link_libraries(Hazel PUBLIC EnTT)
 target_link_libraries(Hazel PUBLIC yaml-cpp)
 
 target_compile_definitions(Hazel PUBLIC _CRT_SECURE_NO_WARNINGS)
 target_compile_definitions(Hazel PUBLIC GLFW_INCLUDE_NONE)
-# target_compile_definitions(Hazel PUBLIC HZ_PLATFORM_WINDOWS)
-# Debug only
-# target_compile_definitions(Hazel PUBLIC HZ_DEBUG)
