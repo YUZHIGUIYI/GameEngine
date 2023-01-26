@@ -96,7 +96,7 @@ namespace Hazel
         }
 
         // Use a single shader to render both textured and non-textured quads
-        s_Data.TextureShader = Shader::Create("assets/shaders/Texture.glsl");
+        s_Data.TextureShader = Shader::Create("HazelnutAssets/shaders/Texture.glsl");
         s_Data.TextureShader->Bind();
         s_Data.TextureShader->SetIntArray("u_Textures", samplers, s_Data.MaxTextureSlots);
 

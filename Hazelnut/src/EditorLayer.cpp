@@ -25,7 +25,7 @@ namespace Hazel
     {
         HZ_PROFILE_FUNCTION();
 
-        m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
+        m_CheckerboardTexture = Texture2D::Create("HazelnutAssets/textures/Checkerboard.png");
 
         FramebufferSpecification fbSpec;
         fbSpec.Width = 1280;
