@@ -321,6 +321,7 @@ namespace Hazel
 
         EventDispatcher dispatcher(event);
         dispatcher.Dispatch<KeyPressedEvent>(HZ_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
+        dispatcher.Dispatch<MouseButtonPressedEvent>(HZ_BIND_EVENT_FN(EditorLayer::OnMouseButtonPressed));
     }
 
     bool EditorLayer::OnKeyPressed(KeyPressedEvent &event)
@@ -383,6 +384,16 @@ namespace Hazel
         }
 
         return true;
+    }
+
+    bool EditorLayer::OnMouseButtonPressed(MouseButtonPressedEvent &event)
+    {
+        if (event.GetMouseButton() == Mouse::ButtonLeft)
+        {
+            if (m_ViewportHovered && !ImGuizmo::IsOver() && !Input::IsKeyPressed(Key::LeftAlt))
+                m_SceneHierarchyPanel.SetSelectedEntity(m_HoveredEntity);
+        }
+        return false;
     }
 
     void EditorLayer::NewScene()
