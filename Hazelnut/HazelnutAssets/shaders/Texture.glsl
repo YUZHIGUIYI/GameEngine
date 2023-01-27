@@ -80,7 +80,7 @@ void main()
     }
     color = texColor;
 
-    color2 = 50;
+    color2 = 50;    // placeholder for entity ID
 }
 
 

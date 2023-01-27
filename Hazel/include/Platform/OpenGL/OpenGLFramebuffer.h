@@ -24,6 +24,8 @@ namespace Hazel
 
         virtual int ReadPixel(uint32_t attachmentIndex, int x, int y) override;
 
+        virtual void ClearAttachment(uint32_t attachmentIndex, int value) override; // Clear a specific attachment within framebuffer to a particular value
+
         virtual uint32_t GetColorAttachmentRendererID(uint32_t index = 0) const override
         {
             HZ_CORE_ASSERT(index < m_ColorAttachments.size());
