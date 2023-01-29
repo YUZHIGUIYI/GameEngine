@@ -11,3 +11,8 @@ add_custom_command(TARGET Hazelnut
         POST_BUILD
         COMMAND
         ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/HazelnutAssets ${PROJECT_SOURCE_DIR}/bin/HazelnutAssets)
+
+add_custom_command(TARGET Hazelnut
+        POST_BUILD
+        COMMAND
+        ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/Resources ${PROJECT_SOURCE_DIR}/bin/Resources)

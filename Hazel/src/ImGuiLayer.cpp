@@ -38,9 +38,10 @@ namespace Hazel
         //io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
 
         // Load Fonts
-        ImFont* font = io.Fonts->AddFontFromFileTTF("HazelnutAssets/fonts/OpenSans/OpenSans-Bold.ttf", 18.0f);
+        float fontSize = 18.0f;
+        ImFont* font = io.Fonts->AddFontFromFileTTF("HazelnutAssets/fonts/OpenSans/OpenSans-Bold.ttf", fontSize);
         HZ_CORE_ASSERT(font, "ImGui fails to load font!");
-        io.FontDefault = io.Fonts->AddFontFromFileTTF("HazelnutAssets/fonts/OpenSans/OpenSans-Regular.ttf", 18.0f);
+        io.FontDefault = io.Fonts->AddFontFromFileTTF("HazelnutAssets/fonts/OpenSans/OpenSans-Regular.ttf", fontSize);
 
         // Setup Dear ImGui style
         ImGui::StyleColorsDark();
