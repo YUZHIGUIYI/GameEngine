@@ -19,6 +19,9 @@ add_subdirectory(external/entt)
 # yaml-cpp
 add_subdirectory(external/yaml-cpp)
 
+# Box2D
+add_subdirectory(external/Box2D)
+
 # Hazel
 file(GLOB_RECURSE HazelFiles CONFIGURE_DEPENDS src/*.cpp include/*.h)
 
@@ -37,6 +40,7 @@ target_link_libraries(Hazel PUBLIC ImGuizmo)
 target_link_libraries(Hazel PUBLIC spdlog_header_only)
 target_link_libraries(Hazel PUBLIC EnTT)
 target_link_libraries(Hazel PUBLIC yaml-cpp)
+target_link_libraries(Hazel PUBLIC box2d)
 
 target_link_libraries(Hazel PUBLIC Vulkan::Vulkan)
 target_link_libraries(Hazel PUBLIC Vulkan::shaderc_combined)

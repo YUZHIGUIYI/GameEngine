@@ -23,3 +23,6 @@
 [submodule "Hazel/external/ImGuizmo"]
 	path = Hazel/external/ImGuizmo
 	url = https://github.com/YUZHIGUIYI/ImGuizmo.git
+[submodule "Hazel/external/Box2D"]
+	path = Hazel/external/Box2D
+	url = https://github.com/YUZHIGUIYI/box2d.git
