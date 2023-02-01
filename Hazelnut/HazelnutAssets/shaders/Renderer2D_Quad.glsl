@@ -1,4 +1,7 @@
-// Renderer2D Quad Texture Shader
+//--------------------------
+// - Hazel 2D -
+// Renderer2D Quad Shader
+// --------------------------
 
 #type vertex
 #version 450 core
@@ -40,8 +43,8 @@ void main()
 #type fragment
 #version 450 core
 
-layout(location = 0) out vec4 color;
-layout(location = 1) out int color2;
+layout(location = 0) out vec4 o_Color;
+layout(location = 1) out int o_EntityID;
 
 struct VertexOutput
 {
@@ -59,8 +62,7 @@ layout (binding = 0) uniform sampler2D u_Textures[32];
 void main()
 {
     vec4 texColor = Input.Color;
-    //color = texture(u_Textures[int(v_TexIndex)], v_TexCoord * v_TilingFactor) * v_Color;
-    // Branching instead of indexing the texture sampler
+
     switch(int(v_TexIndex))
     {
         case 0: texColor *= texture(u_Textures[0], Input.TexCoord * Input.TilingFactor); break;
@@ -96,9 +98,9 @@ void main()
         case 30: texColor *= texture(u_Textures[30], Input.TexCoord * Input.TilingFactor); break;
         case 31: texColor *= texture(u_Textures[31], Input.TexCoord * Input.TilingFactor); break;
     }
-    color = texColor;
 
-    color2 = v_EntityID;    // placeholder for entity ID
+    o_Color = texColor;
+    o_EntityID = v_EntityID;    // placeholder for entity ID
 }
 
 
