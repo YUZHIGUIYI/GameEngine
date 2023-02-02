@@ -1,0 +1,42 @@
+Scene: Untitled
+Entities:
+  - Entity: 16373304383131521325
+    TagComponent:
+      Tag: Floor
+    TransformComponent:
+      Translation: [0, -1.29999995, 0]
+      Rotation: [0, 0, 0]
+      Scale: [18.7000008, 0.200000003, 1]
+    SpriteRendererComponent:
+      Color: [0.787644804, 0.757879555, 0.194630355, 1]
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 5964263237395071996
+    TagComponent:
+      Tag: Circle
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CircleRendererComponent:
+      Color: [1, 1, 1, 1]
+      Thickness: 0.075000003
+      Fade: 0.00499999989
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
